@@ -1,7 +1,7 @@
 {
-  "name": "slicks-slices-frontend",
+  "name": "steens-beans-front-end",
   "private": true,
-  "description": "Slick Serves the Sweetest Slices",
+  "description": "Steens Beens Coffee Shop",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -57,6 +57,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wesbos/slicks-slices"
+    "url": "https://github.com/dombartenope/SteensBeans"
   }
 }
