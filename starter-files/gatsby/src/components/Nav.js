@@ -6,6 +6,9 @@ import Logo from './Logo';
 const NavStyles = styled.nav`
     margin-bottom: 3rem;
     font-weight: bold;
+    .logo {
+        transform: translateY(-25%);
+    }
     ul {
         margin: 0;
         padding: 0;
@@ -15,6 +18,7 @@ const NavStyles = styled.nav`
         text-align: center;
         list-style: none;
         align-items: center;
+        margin-top: -6rem;
     }
     li {
         --rotate: -2deg;
@@ -36,6 +40,9 @@ const NavStyles = styled.nav`
         &:hover {
             color: var(--brown);
         }
+        &[aria-current="page"] {
+            color: var(--brown);
+        }
     }
 `;
 
@@ -55,7 +62,7 @@ const Nav = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to = "/roastmasters">Roast Masters</Link>
+                    <Link to = "/roastmasters">Roastmasters</Link>
                 </li>
                 <li>
                     <Link to = "/order">Order Ahead!</Link>

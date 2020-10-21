@@ -1,10 +1,10 @@
 {
-  "name": "slicks-slices-backend",
+  "name": "steens-beans-backend",
   "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "package.json",
-  "author": "Wes Bos <wesbos@gmail.com>",
+  "author": "Dom Bartenope",
   "license": "UNLICENSED",
   "scripts": {
     "lint": "eslint .",

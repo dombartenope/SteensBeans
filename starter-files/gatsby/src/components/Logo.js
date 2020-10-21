@@ -25,7 +25,7 @@ const LogoStyles = styled.div`
     border-radius: 50%;
   }
   .est {
-    font-size: 1.5em;
+    font-size: 2em;
     align-self: center;
   }
   h1 {
