@@ -115,7 +115,7 @@ export default function Logo() {
             <span className="letter s">s</span>
           </span>
           <span className="slices">
-              <i class="fas fa-mug-hot"></i>
+              <i className="fas fa-mug-hot"></i>
               beans
             </span>
         </h1>

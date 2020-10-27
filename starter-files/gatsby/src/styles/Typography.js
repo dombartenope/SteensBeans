@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-
+import stripes.svg from '../assets/images/stripes.svg';
 import font from '../assets/fonts/ostrich-regular.ttf';
 
 const Typography = createGlobalStyle`
@@ -25,7 +25,7 @@ const Typography = createGlobalStyle`
     text-decoration-skip-ink: none;
   }
   mark, .mark {
-    background: var(--white);
+    background: url(stripes.svg);
     padding: 0 2px 2px 2px;
     margin: 0;
     display: inline;
