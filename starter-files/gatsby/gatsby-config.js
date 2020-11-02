@@ -5,10 +5,12 @@ export default {
     siteMetadata: {
         title: 'Steens Beans',
         siteUrl: 'https://steens.beans',
-        description: 'The best coffee in New Jersey!'
+        description: 'The best coffee in New Jersey!',
+        twitter: '@steensbeans'
     },
     plugins: [
         'gatsby-plugin-styled-components',
+        'gatsby-plugin-react-helmet',
         {
             resolve: 'gatsby-source-sanity',
             options: {

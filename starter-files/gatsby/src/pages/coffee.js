@@ -3,13 +3,13 @@ import React from 'react';
 import CoffeeList from '../components/CoffeeList';
 import ToppingsFilter from '../components/ToppingsFilter';
 
-const coffee = ({ data }) => {
+const coffee = ({ data, pageContext }) => {
 
     const coffees = data.coffee.nodes;
 
     return (
         <>
-            <ToppingsFilter />
+            <ToppingsFilter activeTopping = {pageContext.topping}/>
             <CoffeeList coffees = {coffees} />
         </>
     )
@@ -18,8 +18,16 @@ const coffee = ({ data }) => {
 export default coffee;
 
 export const query = graphql`
-    query {
-        coffee: allSanityCoffee {
+    query ($topping: [String]){
+        coffee: allSanityCoffee (filter: {
+            toppings: {
+                elemMatch: {
+                    name: {
+                        in: $topping
+                    }
+                }
+            }
+        }){
             nodes {
                 id
                 slug {

@@ -15,14 +15,14 @@ const ToppingsStyles = styled.div`
         background: var(--grey);
         align-items: center;
         border-radius: 2px;
-    }
-    .count {
-        background: white;
-        padding: 2px 5px;
+        .count {
+            background: white;
+            padding: 2px 5px;
 
-    }
-    .active {
-        background: var(--brown);
+        }
+        &[aria-current="page"] {
+            background: var(--tan);
+        }
     }
 `;
 
@@ -47,7 +47,7 @@ const countCoffeeInToppings = (coffees) => {
         return sortedToppings;
 }
 
-const ToppingsFilter = () => {
+const ToppingsFilter = ({ activeTopping }) => {
     const { toppings, coffees } = useStaticQuery(graphql`
         query {
             toppings: allSanityTopping {
@@ -73,8 +73,12 @@ const ToppingsFilter = () => {
 
     return (
         <ToppingsStyles>
+            <Link to='/coffee'>
+                <span className="name">All</span>
+                <span className="count">{coffees.nodes.length}</span>
+            </Link>
             {toppingsWithCounts.map(topping => (
-                <Link to={`/topping/${topping.name}`} key={topping.id}>
+                <Link to={`/topping/${topping.name}`} key={topping.id} className={topping.name === activeTopping ? 'active' : ''}>
                     <span className="name">{topping.name}</span>
                     <span className="count">{topping.count}</span>
                 </Link>

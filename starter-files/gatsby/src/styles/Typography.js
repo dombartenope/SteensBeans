@@ -30,6 +30,7 @@ const Typography = createGlobalStyle`
     margin: 0;
     display: inline;
     line-height: 1;
+    font-weight: bolder;
   }
   .center {
     text-align: center;
