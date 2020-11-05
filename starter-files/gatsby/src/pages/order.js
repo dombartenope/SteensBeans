@@ -6,6 +6,10 @@ import Img from 'gatsby-image';
 import calculateCoffeePrice from '../utils/calculateCoffeePrice';
 import formatMoney from '../utils/formatMoney';
 import OrderStyles from '../styles/OrderStyles';
+import MenuItemStyles from '../styles/MenuItemStyles';
+import useCoffee from '../utils/useCoffee';
+import CoffeeOrder from '../components/CoffeeOrder';
+import calculateOrderTotal from '../utils/calculateOrderTotal';
 
 const order = ({ data }) => {
     const coffees = data.coffee.nodes;
@@ -14,6 +18,8 @@ const order = ({ data }) => {
         name: '',
         email: '',
     })
+
+    const { order, addToOrder, removeFromOrder } = useCoffee({ coffees, values });
 
     return (
         <>
@@ -41,24 +47,39 @@ const order = ({ data }) => {
                 <fieldset className="menu">
                     <legend>Menu</legend>
                     {coffees.map(coffee => (
-                        <div key={coffee.id}>
+                        <MenuItemStyles key={coffee.id}>
                             <Img width="50" height="50" fluid={coffee.image.asset.fluid} alt={coffee.name}/>
                             <div>
                                 <h2>
-                                    {coffee.name}
+                                    <span className="mark">
+                                        {coffee.name}
+                                    </span>
                                 </h2>
                             </div>
-                            <div>
+                            <div className = "sizes">
                                 {[`S`, `M`, `L`].map(size => (
-                                    <button type="button">{size} {formatMoney(calculateCoffeePrice(coffee.price, size))}</button>
+                                    <button type="button" onClick={() => addToOrder({
+                                        id: coffee.id,
+                                        size,
+                                    })}>
+                                        {size} {formatMoney(calculateCoffeePrice(coffee.price, size))}
+                                    </button>
                                 ))}
                             </div>
-                        </div>
+                        </MenuItemStyles>
                     ))}
                 </fieldset>
 
                 <fieldset className="order">
                     <legend>Order</legend>
+                    <CoffeeOrder order={order} removeFromOrder={removeFromOrder} coffees={coffees} />
+                </fieldset>
+
+                <fieldset>
+                    <h3>Your total is {formatMoney(calculateOrderTotal(order, coffees))}</h3>
+                    <button type="submit">
+                        Order Ahead
+                    </button>
                 </fieldset>
 
             </OrderStyles>
