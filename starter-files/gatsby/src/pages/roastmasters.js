@@ -3,6 +3,7 @@ import Img from 'gatsby-image';
 import React from 'react';
 import styled from 'styled-components';
 import Pagination from '../components/Pagination';
+import SEO from '../components/SEO'
 
 const RoastmasterGrid = styled.div`
     display: grid;
@@ -48,6 +49,7 @@ const roastmasters = ({ data, pageContext }) => {
     console.log(roastmasters);
     return (
         <>
+            <SEO title={`Roastmasters - Page ${pageContext.currentPage || 1}`}/>
             <Pagination
                 pageSize = {parseInt(process.env.GATSBY_PAGE_SIZE)}
                 totalCount = {data.roastmasters.totalCount}

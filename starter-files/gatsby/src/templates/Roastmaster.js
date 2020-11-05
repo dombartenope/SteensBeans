@@ -1,18 +1,22 @@
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
+import SEO from '../components/SEO';
 
 const RoastmasterPage = ({ data: { person } }) => {
     console.log(person);
 
     return (
-        <div className="center">
-            <Img fluid={person.image.asset.fluid} alt={person.name} />
-            <h2>
-                <span className="mark">{person.name}</span>
-            </h2>
-            <p>{person.description}</p>
-        </div>
+        <>
+            <SEO title={person.name} image={person.image?.asset?.fluid?.src || '/favicon.svg'}/>
+            <div className="center">
+                <Img fluid={person.image.asset.fluid} alt={person.name} />
+                <h2>
+                    <span className="mark">{person.name}</span>
+                </h2>
+                <p>{person.description}</p>
+            </div>
+        </>
     )
 };
 

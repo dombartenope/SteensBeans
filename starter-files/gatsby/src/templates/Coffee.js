@@ -20,7 +20,7 @@ const singleCoffeePage = ({ data: { coffee } }) => {
     console.log(coffee)
     return (
         <>
-        <SEO />
+        <SEO title={coffee.name} image={coffee.image?.asset?.fluid?.src} />
         <CoffeeGrid>
             <Img fluid={coffee.image.asset.fluid} alt={coffee.name}/>
             <div>

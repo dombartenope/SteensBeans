@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import CoffeeList from '../components/CoffeeList';
+import SEO from '../components/SEO';
 import ToppingsFilter from '../components/ToppingsFilter';
 
 const coffee = ({ data, pageContext }) => {
@@ -9,6 +10,7 @@ const coffee = ({ data, pageContext }) => {
 
     return (
         <>
+            <SEO title={pageContext.topping ? `Coffees With ${pageContext.topping}` : `All Coffees` }/>
             <ToppingsFilter activeTopping = {pageContext.topping}/>
             <CoffeeList coffees = {coffees} />
         </>
