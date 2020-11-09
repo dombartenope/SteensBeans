@@ -38,6 +38,7 @@ const useCoffee = ({ coffees, values }) => {
             total: formatMoney(calculateOrderTotal(order, coffees)),
             name: values.name,
             email: values.email,
+            coffeeCreamer: values.coffeeCreamer,
         }
         console.log(body)
         

@@ -43,6 +43,17 @@ exports.handler = async (event, context) => {
     //Using time delay function for testing:
     // await wait(5000);
     const body = JSON.parse(event.body);
+
+    //Check if honey pot is filled out
+    if(body.coffeeCreamer) {
+        return {
+            statusCode: 400,
+            body: JSON.stringify({
+                message: 'Beep boop bop 🤖 ERR593'
+            })
+        }
+    }
+    
     console.log(body)
     //validation
     const requiredFields = ['email', 'name', 'order'];

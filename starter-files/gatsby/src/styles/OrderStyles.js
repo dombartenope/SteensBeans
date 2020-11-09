@@ -23,6 +23,9 @@ const OrderStyles = styled.form`
     h3 {
         font-weight: bold;
     }
+    .coffeeCreamer {
+        display: none;
+    }
     @media (max-width: 900px) {
         fieldset.menu,
         fieldset.order {

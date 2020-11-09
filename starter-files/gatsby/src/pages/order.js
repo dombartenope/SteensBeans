@@ -17,6 +17,7 @@ const order = ({ data }) => {
     const { values, updateValue } = useForm ({
         name: '',
         email: '',
+        coffeeCreamer: '',
     })
 
     const { 
@@ -46,6 +47,13 @@ const order = ({ data }) => {
                         name="name" 
                         value={values.name} 
                         onChange={updateValue}
+                    />
+                    <input 
+                        type="coffeeCreamer" 
+                        name="coffeeCreamer" 
+                        value={values.coffeeCreamer} 
+                        onChange={updateValue}
+                        className="coffeeCreamer"
                     />
                     <label htmlFor="email">Email</label>
                     <input 
