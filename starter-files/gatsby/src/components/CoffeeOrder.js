@@ -10,7 +10,7 @@ const CoffeeOrder = ({ order, coffees, removeFromOrder }) => {
             {order.map((singleOrder, index) => {
             const coffee = coffees.find(coffee => coffee.id === singleOrder.id);
                 return (
-                    <MenuItemStyles key={singleOrder.id}>
+                    <MenuItemStyles key={`${singleOrder.id}-${index}`}>
                     <Img fluid={coffee.image.asset.fluid} />
                     <h2>{coffee.name}</h2>
                     <p>{formatMoney(calculateCoffeePrice(coffee.price, singleOrder.size))}</p>

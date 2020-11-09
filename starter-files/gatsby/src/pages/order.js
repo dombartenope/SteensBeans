@@ -19,14 +19,26 @@ const order = ({ data }) => {
         email: '',
     })
 
-    const { order, addToOrder, removeFromOrder } = useCoffee({ coffees, values });
+    const { 
+        order, 
+        addToOrder, 
+        removeFromOrder, 
+        submitOrder, 
+        error, 
+        loading, 
+        message 
+    } = useCoffee({ coffees, values });
+
+    if(message){
+        return <p>{message}</p>
+    }
 
     return (
         <>
             <SEO title={`Order a Coffee`}/>
-            <OrderStyles>
+            <OrderStyles onSubmit={submitOrder}>
 
-                <fieldset>
+                <fieldset disabled={loading}>
                     <legend>Your Info</legend>
                     <label htmlFor="name">Name</label>
                     <input 
@@ -44,7 +56,7 @@ const order = ({ data }) => {
                     />
                 </fieldset>
 
-                <fieldset className="menu">
+                <fieldset className="menu" disabled={loading}>
                     <legend>Menu</legend>
                     {coffees.map(coffee => (
                         <MenuItemStyles key={coffee.id}>
@@ -58,7 +70,7 @@ const order = ({ data }) => {
                             </div>
                             <div className = "sizes">
                                 {[`S`, `M`, `L`].map(size => (
-                                    <button type="button" onClick={() => addToOrder({
+                                    <button key = {size} type="button" onClick={() => addToOrder({
                                         id: coffee.id,
                                         size,
                                     })}>
@@ -70,15 +82,22 @@ const order = ({ data }) => {
                     ))}
                 </fieldset>
 
-                <fieldset className="order">
+                <fieldset className="order" disabled={loading}>
                     <legend>Order</legend>
-                    <CoffeeOrder order={order} removeFromOrder={removeFromOrder} coffees={coffees} />
+                    <CoffeeOrder 
+                        order={order} 
+                        removeFromOrder={removeFromOrder} 
+                        coffees={coffees} 
+                    />
                 </fieldset>
 
-                <fieldset>
+                <fieldset disabled={loading}>
                     <h3>Your total is {formatMoney(calculateOrderTotal(order, coffees))}</h3>
-                    <button type="submit">
-                        Order Ahead
+                    <div>
+                        {error ? <p>Error: {error}</p> : ''}
+                    </div>
+                    <button type="submit" disabled = {loading}>
+                        {loading ? 'Placing Order...' : 'Order Ahead'}
                     </button>
                 </fieldset>
 

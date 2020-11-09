@@ -15,6 +15,14 @@ const OrderStyles = styled.form`
             grid-column: span 1;
         }
     }
+    input {
+        letter-spacing: .2rem;
+        font-weight: bold;
+        padding-left: 1rem;
+    }
+    h3 {
+        font-weight: bold;
+    }
     @media (max-width: 900px) {
         fieldset.menu,
         fieldset.order {

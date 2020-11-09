@@ -1,5 +1,6 @@
 import React from 'react'
 import Layout from './src/components/Layout'
+import { OrderProvider } from './src/components/OrderContext'
 
 export const wrapPageElement = ({ element, props }) => {
     return (
@@ -7,3 +8,6 @@ export const wrapPageElement = ({ element, props }) => {
     )
 }
 
+export const wrapRootElement = ({ element }) => {
+    return <OrderProvider>{element}</OrderProvider>
+}
