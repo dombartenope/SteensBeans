@@ -58,7 +58,7 @@ const roastmasters = ({ data, pageContext }) => {
             />
             <RoastmasterGrid>
                 {roastmasters.map(person => (
-                    <RoastmasterStyles>
+                    <RoastmasterStyles key = {person.id}>
                         <Link to={`/roastmaster/${person.slug.current}`}>
                             <h2>
                                 <span className="master">{person.name}</span>
