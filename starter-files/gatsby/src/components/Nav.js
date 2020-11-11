@@ -3,8 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import Logo from './Logo';
 
-const NavStyles = styled.nav`
-    margin-bottom: 3rem;
+const NavStyles = styled.nav`    
     font-weight: bold;
     .logo {
         transform: translateY(-25%);

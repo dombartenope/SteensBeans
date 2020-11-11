@@ -1,5 +1,21 @@
 import { useEffect, useState } from 'react';
 
+//For highlighting graphql below
+const gql = String.raw;
+
+//Query for both roastmasters and picks
+const details = gql`
+    name
+    _id
+    image {
+        asset {
+            url
+            metadata {
+                lqip
+            }
+        }
+    }
+`;
 
 const useLatestData = () => {
     //Steens Picks
@@ -17,17 +33,17 @@ const useLatestData = () => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                query: 
-                `
+                query:  
+                gql`
                     query {
                         StoreSettings (id: "downtown") {
-                        name
-                        roastmasters {
                             name
-                        }
-                        steensPicks {
-                            name
-                        }
+                            roastmasters {
+                                ${details}
+                            }
+                            steensPicks {
+                                ${details}
+                            }
                         }
                     }
                 `
@@ -36,8 +52,10 @@ const useLatestData = () => {
             .then(res => res.json())
             .then(res => {
                 setSteensPicks(res.data.StoreSettings.steensPicks);
-                setRoastmasters(res.data.StoreSettings.roastmasters);
-        }); 
+                setRoastmasters(res.data.StoreSettings.roastmasters);}) 
+            .catch(err => {
+                console.log(err);
+            })
     }, [])
     return { steensPicks, roastmasters };
 };

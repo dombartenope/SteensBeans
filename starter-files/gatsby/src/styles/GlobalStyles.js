@@ -78,12 +78,18 @@ const GlobalStyles = createGlobalStyle`
     max-width: 100%;
   }
 
+  .master {
+        display: inline;
+        background: var(--tan);
+        padding: 0.3rem;
+        font-weight: bold;
+    }
+
   .tilt {
     transform: rotate(-2deg);
     position: relative;
     display: inline-block;
   }
-
 `;
 
 export default GlobalStyles;

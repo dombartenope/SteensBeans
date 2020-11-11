@@ -4,6 +4,12 @@ export const HomePageGrid = styled.div`
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(2, minmax(auto, 1fr));
+    .brown {
+        background: var(--brown);
+        color: white;
+        letter-spacing: .3rem;
+        font-weight: 300;
+    }
 `;
 
 export const ItemsGrid = styled.div`
@@ -21,14 +27,10 @@ export const ItemStyles = styled.div`
         font-size: 0;
     }
     p {
-        transform: rotate(-2deg) translateY(-50%);
+        transform: rotate(-2deg) translateY(-140%);
         position: absolute;
         width: 100%;
         left: 0;
-    }
-    .master {
-        display: inline;
-        background: var(--tan);
     }
     img.loading {
         --shine: white;
