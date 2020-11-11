@@ -8,6 +8,9 @@ const CoffeeGridStyles = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 4rem;
     grid-auto-rows: auto auto 500px;
+    @media (max-width: 400px) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 const CoffeeStyles = styled.div`

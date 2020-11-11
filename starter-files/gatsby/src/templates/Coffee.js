@@ -14,6 +14,9 @@ const CoffeeGrid = styled.div`
     h4 {
         align-content: center;
     }
+    @media (max-width: 490px) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 const singleCoffeePage = ({ data: { coffee } }) => {
