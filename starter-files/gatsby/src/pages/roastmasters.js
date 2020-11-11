@@ -46,7 +46,6 @@ const RoastmasterStyles = styled.div`
 
 const roastmasters = ({ data, pageContext }) => {
     const roastmasters = data.roastmasters.nodes;
-    console.log(roastmasters);
     return (
         <>
             <SEO title={`Roastmasters - Page ${pageContext.currentPage || 1}`}/>

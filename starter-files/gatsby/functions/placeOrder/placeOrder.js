@@ -54,7 +54,6 @@ exports.handler = async (event, context) => {
         }
     }
     
-    console.log(body)
     //validation
     const requiredFields = ['email', 'name', 'order'];
     

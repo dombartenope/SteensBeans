@@ -17,7 +17,6 @@ const CoffeeGrid = styled.div`
 `;
 
 const singleCoffeePage = ({ data: { coffee } }) => {
-    console.log(coffee)
     return (
         <>
         <SEO title={coffee.name} image={coffee.image?.asset?.fluid?.src} />

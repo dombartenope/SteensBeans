@@ -4,7 +4,6 @@ import React from 'react';
 import SEO from '../components/SEO';
 
 const RoastmasterPage = ({ data: { person } }) => {
-    console.log(person);
 
     return (
         <>

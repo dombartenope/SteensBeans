@@ -27,7 +27,6 @@ const useCoffee = ({ coffees, values }) => {
     //Function when form is submitted
     const submitOrder = async (e) => {
         e.preventDefault();
-        console.log(e);
         setLoading(true);
         setError(null);
         setMessage(null);
@@ -40,7 +39,6 @@ const useCoffee = ({ coffees, values }) => {
             email: values.email,
             coffeeCreamer: values.coffeeCreamer,
         }
-        console.log(body)
         
         //Send to data to serverless function
         const res = await fetch(`${process.env.GATSBY_SERVERLESS_BASE}/placeOrder`, {

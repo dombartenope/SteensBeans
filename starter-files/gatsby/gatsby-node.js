@@ -88,7 +88,6 @@ const turnRoastmastersIntoPages = async ({ graphql, actions }) => {
     
     //Count from 1 to n
     Array.from({ length: pageCount }).forEach((_, i) => {
-        console.log(`Creating page ${i}`);
         actions.createPage({
             path: `/roastmasters/${i+1}`,
             component: path.resolve(`./src/pages/roastmasters.js`),

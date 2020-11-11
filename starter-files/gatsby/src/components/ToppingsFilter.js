@@ -69,7 +69,6 @@ const ToppingsFilter = ({ activeTopping }) => {
     `);
 
     const toppingsWithCounts = countCoffeeInToppings(coffees.nodes);
-    console.log(toppingsWithCounts);
 
     return (
         <ToppingsStyles>
